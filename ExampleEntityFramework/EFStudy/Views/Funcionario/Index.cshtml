@@ -1,0 +1,18 @@
+﻿@model IEnumerable<EFStudy.Models.Funcionario>
+@{
+    ViewData["Title"] = "Funcionario";
+}
+
+<h2>Todos funcionários</h2>
+<a href="/funcionario/cadastrar" class="btn btn-success">Novo funcionário</a>
+<hr />
+@foreach (var funcionario in Model)
+{
+    <p>CPF:  @funcionario.CPF</p>
+    <p>Nome: @funcionario.Nome</p>
+    <p>Salário @funcionario.Salario</p>
+    <a href="/funcionario/editar/@funcionario.Id" class="btn btn-success">Editar</a>
+    <a href="/funcionario/deletar/@funcionario.Id" class="btn btn-danger">Deletar</a>
+
+    <hr />
+}
