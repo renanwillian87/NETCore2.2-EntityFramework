@@ -13,5 +13,21 @@ namespace EFStudy.Database
             : base(options) { }
 
         public DbSet<Funcionario> Funcionarios { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Produto> Produtos { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies();
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Produto>().ToTable("Produto");
+            modelBuilder.Entity<Produto>()
+                .Property(x => x.Nome)
+                .IsRequired()
+                .HasMaxLength(100);
+        }
     }
 }
