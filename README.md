@@ -1,4 +1,5 @@
-# NETCore2.2-EntityFramework
+# NETCore2.2-SON-EntityFramework
+## Course -> School of Net
 
  - CRUD Basic
  - Migration
